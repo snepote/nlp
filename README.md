@@ -10,3 +10,6 @@ $ bundle exec ruby syntax.rb "YOUR SENTENCE HERE"
 ```bash
 $ bundle exec ruby sentiment.rb "YOUR SENTENCE HERE"
 ```
+
+## Source and examples
+- [here](https://github.com/googleapis/google-cloud-ruby/blob/master/google-cloud-language/samples/language_samples.rb)
