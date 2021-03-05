@@ -1,18 +1,29 @@
 def search_tweets terms:
   require 'twitter'
-  require 'yaml'
+  require 'json'
 
   twitter = Twitter::REST::Client.new(
     JSON.parse(File.read(File.expand_path("#{__dir__}/../../secrets/twitter.json")))
   )
 
-  output = File.expand_path("#{__dir__}/data/tweets.yml")
-
+  hash = {}
+  count = 0
   twitter.search(terms).take(10).each do |tweet|
-    puts "[#{tweet.id}] created at #{tweet.created_at} by #{tweet.user.name} who has #{tweet.user.followers_count} followers"
-    puts tweet.text
-    # File.write(output, YAML.dump(tweet), mode: 'a')
+    hash[tweet.id] = {
+      id: tweet.id,
+      created_at: tweet.created_at,
+      text: tweet.text,
+      user: {
+        id: tweet.user.id,
+        name: tweet.user.name,
+        followers_count: tweet.user.followers_count
+      }
+    }
+    count += 1
   end
+  output = File.expand_path("#{__dir__}../../../data/tweets.json")
+  File.write(output, JSON.pretty_generate(hash))
+  puts "#{count} tweets found for \"#{terms}\". Saved to #{output}"
 end
 
 search_tweets terms: ARGV[0]
