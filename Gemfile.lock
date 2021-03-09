@@ -22,6 +22,8 @@ GEM
       multipart-post (>= 1.2, < 3)
       ruby2_keywords
     faraday-net_http (1.0.1)
+    faraday_middleware (1.0.0)
+      faraday (~> 1.0)
     ffi (1.14.2)
     ffi-compiler (1.0.1)
       ffi (>= 1.0.0)
@@ -92,6 +94,7 @@ GEM
     grpc (1.36.0-universal-darwin)
       google-protobuf (~> 3.14)
       googleapis-common-protos-types (~> 1.0)
+    hashie (4.1.0)
     http (4.4.1)
       addressable (~> 2.3)
       http-cookie (~> 1.0)
@@ -106,12 +109,22 @@ GEM
     httpclient (2.8.3)
     i18n (1.8.9)
       concurrent-ruby (~> 1.0)
+    iex-ruby-client (1.4.0)
+      faraday (>= 0.17)
+      faraday_middleware
+      hashie
+      money_helper
     jwt (2.2.2)
     memoist (0.16.2)
     memoizable (0.4.2)
       thread_safe (~> 0.3, >= 0.3.1)
     mini_mime (1.0.2)
     minitest (5.14.4)
+    money (6.14.1)
+      i18n (>= 0.6.4, <= 2)
+    money_helper (1.0.2)
+      activesupport
+      money (~> 6.5)
     multi_json (1.15.0)
     multipart-post (2.1.1)
     naught (1.1.0)
@@ -175,6 +188,7 @@ PLATFORMS
 DEPENDENCIES
   google-cloud-language (~> 1.2, >= 1.2.3)
   google_drive (~> 3.0, >= 3.0.6)
+  iex-ruby-client (~> 1.4)
   rspec (~> 3.9)
   twitter (~> 7.0)
 
