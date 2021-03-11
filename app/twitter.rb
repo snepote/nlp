@@ -2,11 +2,15 @@ require_relative '../lib/lib'
 require 'twitter'
 require 'json'
 
-$starting_id   = 1367624267614081028 # @todo: remove me
+# Rate limit
+# @endpoint: /1.1/search/tweets.json
+# GET search/tweets
+# 180 Requests / window per user
+# 450 Requests / window per app
+# @link: https://developer.twitter.com/en/docs/twitter-api/v1/rate-limits
 
 RATE_LIMIT_WAIT = 901
 storage         = Twitter::Storage.new
-
 twitter         = Twitter::REST::Client.new(
   JSON.parse(
     File.read(
