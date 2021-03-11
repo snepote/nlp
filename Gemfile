@@ -11,5 +11,6 @@ gem 'slugify',                '~> 1.0', '>= 1.0.7'
 gem 'twitter',                '~> 7.0'
 
 group :test do
+  gem 'faker',                '~> 2.14'    
   gem 'rspec',                '~> 3.9'
 end
