@@ -23,7 +23,7 @@ i = 0
 begin
   query           = '$AMD'
   search_storage  = Twitter::SearchStorage.new(query: query)
-  results         =  search_storage.results.sort_by!{ |r| r[:id]}.reverse!
+  results         = search_storage.results.sort_by!{ |r| r[:id]}.reverse!
   options         = {tweet_mode: 'extended'}
   if results.kind_of?(Array) && !results.empty?
     options = options.merge({max_id: results.last[:id]})
