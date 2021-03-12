@@ -1,6 +1,7 @@
 require_relative '../lib/lib'
 require 'twitter'
 require 'json'
+require 'ostruct'
 
 query           = '$AMD'
 search_storage  = Twitter::SearchStorage.new(query: query)
