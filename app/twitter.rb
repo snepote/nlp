@@ -5,8 +5,8 @@ require 'json'
 # Rate limit
 # @endpoint: /1.1/search/tweets.json
 # GET search/tweets
-# 180 Requests / window per user
-# 450 Requests / window per app
+# 180 Requests / window (900s ?) per user
+# 450 Requests / window (900s ?) per app
 # @link: https://developer.twitter.com/en/docs/twitter-api/v1/rate-limits
 
 RATE_LIMIT_WAIT = 901
