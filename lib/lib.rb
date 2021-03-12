@@ -1,6 +1,7 @@
 require_relative 'credentials/gcp'
 require_relative 'credentials/twitter'
 require_relative 'language/document'
+require_relative 'language/storage'
 require_relative 'twitter/search_storage.rb'
 require_relative 'twitter/sentiment.rb'
 require_relative 'twitter/storage.rb'
