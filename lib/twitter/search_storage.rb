@@ -1,6 +1,9 @@
 require 'slugify'
 require 'json'
 
+
+# @todo make it more generic to be re-used by other entities
+# @todo add or do by default a sort method of the results
 module Twitter
   class SearchStorage
     attr_reader :filename, :results

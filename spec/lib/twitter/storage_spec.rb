@@ -24,4 +24,9 @@ RSpec.describe Twitter::Storage do
       end
     end
   end
+
+  describe "#sort" do
+    it "is a pending example"
+  end
+
 end
