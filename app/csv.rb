@@ -8,8 +8,9 @@ search_storage  = Twitter::SearchStorage.new(query: query)
 results         = search_storage.results.sort_by!{ |r| r[:id]}.reverse!
 if results.kind_of?(Array) && !results.empty?
   language_storage = Language::Storage.new
+  round = Serie::Round.new
   puts "id;created_at;name;followers_count;score"
-  results.each do |tweet|
+  round.round(serie: results, interval: Serie::FIFTEEN_MIN).each do |tweet|
     tweet = JSON.parse(tweet.to_json.to_s, object_class: OpenStruct)
     sentiment = JSON.parse(language_storage.read(name: tweet.id).to_json.to_s, object_class: OpenStruct)
     unless sentiment.nil?

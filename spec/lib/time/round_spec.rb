@@ -65,5 +65,21 @@ RSpec.describe Serie::Round do
         )
       end
     end
+
+    context 'when time fields is not of type Time' do
+      it 'return the non Time values converted to time' do
+        wrong_type_serie = [
+          { created_at: 'Thu Mar 11 14:51:07 +0000 2021', value: 1 },
+          { created_at: 'Thu Mar 11 14:48:21 +0000 2021', value: 2 }
+        ]
+
+        expect(round.round(serie: wrong_type_serie)).to eq(
+          [
+            { created_at: Time.parse('Thu Mar 11 14:45:00 +0000 2021'), value: 1 },
+            { created_at: Time.parse('Thu Mar 11 14:45:00 +0000 2021'), value: 2 }
+          ]
+        )
+      end
+    end
   end
 end
