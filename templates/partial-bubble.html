@@ -1,0 +1,21 @@
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawSeriesChart);
+
+    function drawSeriesChart() {
+
+      var data = google.visualization.arrayToDataTable(%{array_data_table});
+
+      var options = {
+        title: '%{title}',
+        hAxis: {title: '%{h_axis_title}'},
+        vAxis: {title: '%{v_axis_title}'},
+        bubble: {textStyle: {fontSize: 11}}
+      };
+
+      var chart = new google.visualization.BubbleChart(document.getElementById('series_chart_div'));
+      chart.draw(data, options);
+    }
+    </script>
+    <div id="series_chart_div" style="width: 900px; height: 500px;"></div>
