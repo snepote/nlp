@@ -26,6 +26,8 @@ begin
   results         = search_storage.results.sort_by!{ |r| r[:id]}.reverse!
   options         = {tweet_mode: 'extended'}
   if results.kind_of?(Array) && !results.empty?
+    last = results.last
+    puts "starting from #{last[:id]} at #{last[:created_at]} by #{last[:user][:name]}"
     options = options.merge({max_id: results.last[:id]})
   end
 
