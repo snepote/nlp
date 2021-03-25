@@ -11,11 +11,10 @@ iexcloud = IEX::Api::Client.new(
 )
 
 symbol = 'AMD'
-date = Time.parse("2021-03-14").strftime("%Y%m%d")
-options = {range: date} # '5dm'
-historical_prices = iexcloud.historical_prices(symbol, options)
-
+date = Time.parse("2021-03-25").strftime("%Y%m%d")
+options = {range: '5dm', date: date} # One day of data
 puts "symbol: #{symbol} for #{options} (time in UTC)"
+historical_prices = iexcloud.historical_prices(symbol, options)
 puts "time;open;high;low;close"
 historical_prices.each do |price|
   time = Time.parse("#{price.date} #{price.label} UTC").strftime('%d/%m/%Y %T')
